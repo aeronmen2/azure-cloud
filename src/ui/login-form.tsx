@@ -1,15 +1,15 @@
 "use client"
 
-import { lusitana } from "@/ui/fonts"
 import {
-  UserIcon,
+  AtSymbolIcon,
   KeyIcon,
   ExclamationCircleIcon,
 } from "@heroicons/react/24/outline"
 import { ArrowRightIcon } from "@heroicons/react/20/solid"
-import { useFormState, useFormStatus } from "react-dom"
 import { Button } from "./button"
-import { authenticate } from "../lib/actions"
+import { useFormState, useFormStatus } from "react-dom"
+import { authenticate } from "@/lib/actions"
+import { lusitana } from "./fonts"
 
 export default function LoginForm() {
   const [errorMessage, dispatch] = useFormState(authenticate, undefined)
@@ -37,7 +37,7 @@ export default function LoginForm() {
                 placeholder="Enter your username address"
                 required
               />
-              <UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+              <AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
             </div>
           </div>
           <div className="mt-4">

@@ -1,26 +1,28 @@
 import SideNav from "@/ui/dashboard/sidenav"
+import { auth } from "../../../auth"
 
-const Dashboard = () => {
+export default async function Page() {
+  const session = await auth()
+
   return (
-    <div className="h-screen">
-      <div>
-        {userRole === "partial-access" ? (
-          <div>
-            <p>Nav Item 1</p>
-          </div>
-        ) : userRole === "full-access" ? (
-          <div>
-            <p>Nav Item 1</p>
-            <p>Nav Item 2</p>
-            <p>Nav Item 3</p>
-          </div>
-        ) : null}
-      </div>
-      <div>
-        <SideNav />
-      </div>
+    <div className="flex w-screen h-screen">
+      <h1>Hello, {session?.user.name}! </h1>
+      {session?.user.role === "full-access" ? (
+        <>
+          <h1>Welcome to the dashboard!</h1>
+          <SideNav />
+        </>
+      ) : session?.user.role === "partial-access" ? (
+        <>
+          <h1>You have partial access to the dashboard.</h1>
+          <SideNav />
+        </>
+      ) : (
+        <>
+          <h1>You have no access to any virtual machines. Sorry...</h1>
+          <SideNav />
+        </>
+      )}
     </div>
   )
 }
-
-export default Dashboard

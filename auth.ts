@@ -1,13 +1,14 @@
-import NextAuth from "next-auth"
+import NextAuth, { User } from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { z } from "zod"
 import { authConfig } from "./auth.config"
 import { users } from "@/data/users"
-import { User } from "@/types/userType"
 
 async function getUser(username: string): Promise<User | any> {
   try {
-    const user = await users.find((user: User) => user.username === username)
+    const user = (await users.find(
+      (user: User) => user.name === username
+    )) as User
 
     return user
   } catch (error) {
@@ -15,7 +16,12 @@ async function getUser(username: string): Promise<User | any> {
   }
 }
 
-export const { auth, signIn, signOut } = NextAuth({
+export const {
+  handlers: { GET, POST },
+  auth,
+  signIn,
+  signOut,
+} = NextAuth({
   ...authConfig,
   providers: [
     Credentials({
@@ -41,4 +47,26 @@ export const { auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {},
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.name = user.name
+        token.role = user.role
+        token.description = user.description
+      }
+
+      return token
+    },
+    session({ session, token }) {
+      session.user.name = token.name
+      session.user.role = token.role
+      session.user.description = token.description
+
+      return session
+    },
+  },
 })
