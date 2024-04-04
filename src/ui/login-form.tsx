@@ -74,9 +74,7 @@ export default function LoginForm() {
             </>
           )}
         </div>
-        <div className="flex h-8 items-end space-x-1">
-          {/* Add form errors here */}
-        </div>
+        <div className="flex h-8 items-end space-x-1"></div>
       </div>
     </form>
   )
