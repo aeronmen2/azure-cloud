@@ -20,12 +20,7 @@ export default async function Layout({
           <Logout />
         </div>
       </div>
-      <div className="flex-grow m-3 rounded-lg overflow-y-auto">{children}</div>
-      <div className="flex absolute bottom-0 m-3 items-end rounded-lg bg-blue-500 p-4 ">
-        <footer className={`text-white font-semibold`}>
-          © Made with ❤️ by Alexis Duchemann
-        </footer>
-      </div>
+      <div className="flex-grow m-3 overflow-y-auto">{children}</div>
     </div>
   )
 }
