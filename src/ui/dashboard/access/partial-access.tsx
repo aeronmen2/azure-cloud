@@ -1,11 +1,23 @@
-import Debian from "../vms/debian"
+"use client"
+
+import React, { useState } from "react"
+import { lusitana } from "@/ui/fonts"
+import Windows from "../vms/windows"
 
 const PartialAccess = () => {
+  const [isCreationAllowed, setIsCreationAllowed] = useState(true)
+
   return (
-    <div>
-      <h1>Partial Access</h1>
-      <p>This is the partial access page</p>
-      <Debian />
+    <div className="w-full bg-gray-50 rounded-lg">
+      <h1 className={`${lusitana.className} text-xl px-4 pt-4`}>
+        You have access to one Virtual Machine!
+      </h1>
+      <div className="flex bg-gray-50">
+        <Windows
+          isCreationAllowed={isCreationAllowed}
+          setIsCreationAllowed={setIsCreationAllowed}
+        />
+      </div>
     </div>
   )
 }

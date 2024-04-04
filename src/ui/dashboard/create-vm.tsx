@@ -6,45 +6,39 @@ import Modal from "../modal"
 
 interface CreateVMProps {
   machine: string
+  isCreationAllowed: boolean
+  setIsCreationAllowed: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const CreateVM = ({ machine }: CreateVMProps) => {
+const CreateVM = ({
+  machine,
+  isCreationAllowed,
+  setIsCreationAllowed,
+}: CreateVMProps) => {
   const [isCreating, setIsCreating] = useState(false)
 
-  // Global state to disable other VM creations
-  const [disableOtherVMs, setDisableOtherVMs] = useState(false)
-
-  const handleCreateVM = async () => {
-    setDisableOtherVMs(true) // Disable other VM creations immediately
+  const handleCreateVM = () => {
     setIsCreating(true)
+    setIsCreationAllowed(false)
     console.log(`Creating ${machine} VM`)
 
-    try {
-      // Simulate VM creation process (replace with actual VM creation logic)
-      await new Promise((resolve) => setTimeout(resolve, 3000))
-      console.log(`${machine} VM created successfully`)
-    } catch (error) {
-      console.error(`Error creating ${machine} VM:`, error)
-    } finally {
+    setTimeout(() => {
       setIsCreating(false)
-      setDisableOtherVMs(false) // Re-enable other VM creations after completion/error
-    }
+      setIsCreationAllowed(true)
+      console.log(`${machine} VM created successfully`)
+    }, 3000)
   }
 
   return (
     <>
       <Button
         onClick={handleCreateVM}
-        disabled={disableOtherVMs}
         className="mt-4"
+        disabled={!isCreationAllowed}
       >
-        Create {machine} VM
+        Create
       </Button>
-      {isCreating && (
-        <Modal>
-          <div>Creating {machine} VM...</div>
-        </Modal>
-      )}
+      {isCreating && <Modal>Creating {machine} VM...</Modal>}
     </>
   )
 }
