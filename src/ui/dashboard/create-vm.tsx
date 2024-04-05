@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import { Button } from "../button"
 import Modal from "../modal"
+import { launchCreateResources } from "@/lib/vms/create-vm"
 
 interface CreateVMProps {
   machine: string
@@ -17,24 +18,28 @@ const CreateVM = ({
 }: CreateVMProps) => {
   const [isCreating, setIsCreating] = useState(false)
 
-  const handleCreateVM = () => {
+  const handleCreateVM = async ({ machine }: { machine: string }) => {
     setIsCreating(true)
     setIsCreationAllowed(false)
-    console.log(`Creating ${machine} VM`)
 
-    setTimeout(() => {
+    try {
+      await launchCreateResources(machine)
       setIsCreating(false)
+    } catch (error) {
+      console.error("Failed to create VM:", error)
+    } finally {
       setIsCreationAllowed(true)
-      console.log(`${machine} VM created successfully`)
-    }, 3000)
+    }
   }
 
   return (
     <>
       <Button
-        onClick={handleCreateVM}
+        onClick={() => {
+          handleCreateVM({ machine })
+        }}
         className="mt-4"
-        disabled={!isCreationAllowed}
+        disabled={!isCreationAllowed || isCreating}
       >
         Create
       </Button>

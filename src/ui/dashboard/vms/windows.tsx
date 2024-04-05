@@ -15,7 +15,7 @@ const Windows = ({
     <VirtualMachines
       name="Windows"
       logo={WindowsLogo}
-      machine="windows"
+      machine="Windows"
       isCreationAllowed={isCreationAllowed}
       setIsCreationAllowed={setIsCreationAllowed}
     />

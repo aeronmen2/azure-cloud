@@ -14,7 +14,7 @@ const Debian = ({
     <VirtualMachine
       name="Debian"
       logo={DebianLogo}
-      machine="debian"
+      machine="Debian"
       isCreationAllowed={isCreationAllowed}
       setIsCreationAllowed={setIsCreationAllowed}
     />

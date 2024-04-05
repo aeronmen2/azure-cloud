@@ -9,17 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@azure/arm-compute": "^21.5.1-alpha.20240403.1",
+    "@azure/arm-network": "^33.1.0-alpha.20240403.1",
+    "@azure/arm-resources": "^5.2.1-alpha.20240404.1",
+    "@azure/arm-storage": "^18.2.1-alpha.20240403.1",
+    "@azure/identity": "^4.0.1",
     "@heroicons/react": "^2.1.1",
-    "clsx": "^2.1.0",
     "@tailwindcss/forms": "^0.5.7",
+    "clsx": "^2.1.0",
     "eslint-config-prettier": "^9.1.0",
     "next": "14.1.4",
     "next-auth": "^5.0.0-beta.5",
+    "postcss": "8.4.31",
     "react": "^18",
     "react-dom": "^18",
-    "zod": "^3.22.4",
-    "postcss": "8.4.31",
-    "tailwindcss": "^3.3.3"
+    "react-router-dom": "^6.22.3",
+    "tailwindcss": "^3.3.3",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",

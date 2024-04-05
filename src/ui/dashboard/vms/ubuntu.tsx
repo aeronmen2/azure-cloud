@@ -15,7 +15,7 @@ const Ubuntu = ({
     <VirtualMachine
       name="Ubuntu"
       logo={UbuntuLogo}
-      machine="ubuntu"
+      machine="Ubuntu"
       isCreationAllowed={isCreationAllowed}
       setIsCreationAllowed={setIsCreationAllowed}
     />
