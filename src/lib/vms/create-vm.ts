@@ -52,9 +52,31 @@ const networkClient = new NetworkManagementClient(credentials, subscriptionId!)
 
 export const launchCreateResources = async (osType: string) => {
   try {
-    await createResources(osType)
+    const result = await createResources(osType)
+
+    if (!result) {
+      throw new Error("Failed to create resources")
+    }
+
+    console.log(result)
+    console.log("The machine will delete in 1 minute.")
+    setTimeout(async () => {
+      await deleteResourceGroup()
+    }, 1 * 60 * 1000)
   } catch (err) {
-    console.log(err)
+    await deleteResourceGroup()
+  }
+}
+
+const deleteResourceGroup = async () => {
+  try {
+    console.log("Deleting resource group: " + resourceGroupName)
+
+    await resourceClient.resourceGroups.beginDeleteAndWait(resourceGroupName)
+
+    console.log("Resource group deleted.")
+  } catch (err) {
+    console.log("Error deleting resource group")
   }
 }
 
@@ -78,7 +100,7 @@ const createResources = async (osType: string) => {
       sku
     )
 
-    return
+    return publicIPInfo
   } catch (err) {
     console.log(err)
   }
@@ -293,7 +315,7 @@ const createVirtualMachine = async (
 }
 
 function _generateRandomId(prefix: string | number, existIds: {}) {
-  var newNumber
+  let newNumber
 
   // eslint-disable-next-line no-constant-condition
   while (true) {
@@ -307,7 +329,7 @@ function _generateRandomId(prefix: string | number, existIds: {}) {
   return newNumber
 }
 
-const resourceGroupName = _generateRandomId("diberry-testrg", randomIds)
+const resourceGroupName = _generateRandomId("alexis-testrg", randomIds)
 const vmName = _generateRandomId("testvm", randomIds)
 const storageAccountName = _generateRandomId("testac", randomIds)
 const vnetName = _generateRandomId("testvnet", randomIds)
