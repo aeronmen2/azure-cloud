@@ -104,7 +104,7 @@ npm run dev
 
 ## Self-Deletion
 
-After a virtual machine has been successfully created, regardless of the level of access, it will remain accessible for 10 minutes. After this period, the virtual machine will self-delete, ensuring efficient use of resources and maintaining security.
+After a virtual machine has been successfully created, regardless of the level of access, it will remain accessible for 10 minutes. After this period, the virtual machine will self-delete, ensuring efficient use of resources and maintaining security. (You can verify in your console the deletion progress.)
 
 ## Technologies Used
 
