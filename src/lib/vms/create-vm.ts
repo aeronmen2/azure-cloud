@@ -61,20 +61,19 @@ export const launchCreateResources = async (osType: string) => {
     }
 
     console.log(result)
-    console.log("The machine will delete in 1 minute.")
+    console.log("The machine will delete in 10 minute.")
 
     // Store the FQDN in a variable
     fqdn = result.dnsSettings?.fqdn
 
     setTimeout(async () => {
       await deleteResourceGroup()
-    }, 1 * 60 * 1000)
+    }, 10 * 60 * 1000)
   } catch (err) {
     await deleteResourceGroup()
-    throw err // Re-throwing the error
+    throw err
   }
 
-  // Return the FQDN after the setTimeout if needed
   return fqdn
 }
 

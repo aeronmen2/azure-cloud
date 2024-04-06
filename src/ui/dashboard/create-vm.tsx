@@ -86,7 +86,7 @@ const CreateVM = ({
                     <p className="text-bold">notadmin@{fqdn}</p>
                   </div>
                   <ClipboardDocumentIcon
-                    onClick={() => copyToClipboard("notadmin@{fqdn}")}
+                    onClick={() => copyToClipboard(`notadmin@${fqdn}`)}
                     className="w-6 h-6 cursor-pointer"
                   />
                 </div>
