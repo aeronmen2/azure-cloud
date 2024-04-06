@@ -1,3 +1,19 @@
+# Table of Contents
+
+1. [Next.js Project](#nextjs-project)
+2. [Getting Started](#getting-started)
+3. [Generating JWT Secret](#generating-jwt-secret)
+4. [Installing Dependencies](#installing-dependencies)
+5. [Connection Instructions](#connection-instructions)
+   - [User: no-access-user](#user-no-access-user)
+   - [User: partial-access-user](#user-partial-access-user)
+   - [User: full-access-user](#user-full-access-user)
+6. [Virtual Machine Creation](#virtual-machine-creation)
+7. [Self-Deletion](#self-deletion)
+8. [Technologies Used](#technologies-used)
+9. [Azure Resource Deployment Script Documentation](#azure-resource-deployment-script-documentation)
+10. [CreateVM Component Documentation](#createvm-component-documentation)
+
 # Next.js Project
 
 The project involves the development of a web application aimed at providing developers with easily accessible disposable testing and evaluation environments for their software. The concept revolves around enabling a developer, for instance, wishing to test their application on Windows 11, to visit our web application. Here, they can effortlessly create and access a Windows 11 environment via Remote Desktop Protocol (RDP), eliminating the need to deal with virtual machine intricacies. By simply ordering a Windows machine, testing their application, and disconnecting afterward, developers can streamline their testing process without the hassle of managing virtual machine details.
