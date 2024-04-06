@@ -19,7 +19,7 @@
 
 The project involves the development of a web application aimed at providing developers with easily accessible disposable testing and evaluation environments for their software. The concept revolves around enabling a developer, for instance, wishing to test their application on Windows 11, to visit our web application. Here, they can effortlessly create and access a Windows 11 environment via Remote Desktop Protocol (RDP), eliminating the need to deal with virtual machine intricacies. By simply ordering a Windows machine, testing their application, and disconnecting afterward, developers can streamline their testing process without the hassle of managing virtual machine details.
 
-## Getting Started
+## Getting started
 
 To get started with this project in the Linux environment, you'll need to follow these steps:
 
@@ -29,9 +29,16 @@ To get started with this project in the Linux environment, you'll need to follow
    unzip project.zip
    ```
 
-2. **Open the Project in Your IDE**: You can use either WebStorm or Visual Studio Code (VSCode) as your IDE. Open your preferred IDE, then navigate to the directory where you've decompressed the project, and open it from there.
+2. **Ensure Node.js is Installed**: Check if Node.js is installed on your system and, if not, install it. You can download the latest version of Node.js from the [official website](https://nodejs.org/), or you can use a package manager like `apt` if you're on a Debian-based system.
 
-3. **Copy and Configure Environment Variables**:
+   ```bash
+   sudo apt update
+   sudo apt install nodejs
+   ```
+
+3. **Open the Project in Your IDE**: You can use either WebStorm or Visual Studio Code (VSCode) as your IDE. Open your preferred IDE, then navigate to the directory where you've decompressed the project, and open it from there.
+
+4. **Copy and Configure Environment Variables**:
 
    - Locate the `.env.example` file in the project directory.
    - Create a new file named `.env`.
@@ -49,9 +56,7 @@ To get started with this project in the Linux environment, you'll need to follow
    AZURE_SUBSCRIPTION_ID='your_azure_subscription_id'
    ```
 
-4. **Save the `.env` File**: Make sure to save the `.env` file after adding your configurations.
-
-By following these steps, you should be able to set up and run the project in your Linux environment using either WebStorm or VSCode.
+5. **Save the `.env` File**: Make sure to save the `.env` file after adding your configurations.
 
 ## Generating JWT Secret
 
