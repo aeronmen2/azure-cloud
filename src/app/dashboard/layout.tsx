@@ -1,5 +1,4 @@
 import Logout from "@/ui/dashboard/logout"
-import { lusitana } from "@/ui/fonts"
 import { auth } from "auth"
 import React from "react"
 
@@ -13,9 +12,7 @@ export default async function Layout({
   return (
     <div className="">
       <div className="flex m-3 items-end rounded-lg bg-blue-500 p-4 md:h-52">
-        <h1 className={`${lusitana.className} text-white text-7xl`}>
-          Hello, {session?.user.name}!
-        </h1>
+        <h1 className={`text-white text-7xl`}>Hello, {session?.user.name}!</h1>
         <div className="p-2">
           <Logout />
         </div>

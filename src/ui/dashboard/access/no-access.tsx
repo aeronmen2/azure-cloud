@@ -1,8 +1,6 @@
-import { lusitana } from "@/ui/fonts"
-
 const NoAccess = () => {
   return (
-    <div className={`${lusitana.className} text-3xl m-4`}>
+    <div className={`text-3xl m-4`}>
       <span role="img" aria-label="Restricted Access">
         ⛔️
       </span>{" "}

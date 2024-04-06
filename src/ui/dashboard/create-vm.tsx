@@ -5,7 +5,6 @@ import { Button } from "../button"
 import Modal from "../modal"
 import { launchCreateResources } from "@/lib/vms/create-vm"
 import { ClipboardDocumentIcon } from "@heroicons/react/24/outline"
-import { lusitana } from "../fonts"
 
 interface CreateVMProps {
   machine: string
@@ -76,13 +75,13 @@ const CreateVM = ({
           )}
           {fqdn && (
             <div className="">
-              <div className={`${lusitana.className} text-2xl`}>
+              <div className={`text-2xl`}>
                 <p>✅ VM created successfully!</p>
               </div>
               <div className="mt-5 items-center">
                 <div className="flex">
                   <div className="flex">
-                    <p>SSH connection:</p>
+                    <p>SSH connection: </p>
                     <p className="text-bold">notadmin@{fqdn}</p>
                   </div>
                   <ClipboardDocumentIcon
@@ -97,6 +96,9 @@ const CreateVM = ({
                     className="w-6 h-6 cursor-pointer"
                   />
                 </div>
+                <p className="text-red-300">
+                  Your machine will be deleted in 10 minutes
+                </p>
               </div>
             </div>
           )}
