@@ -13,6 +13,7 @@
 8. [Technologies Used](#technologies-used)
 9. [Azure Resource Deployment Script Documentation](#azure-resource-deployment-script-documentation)
 10. [CreateVM Component Documentation](#createvm-component-documentation)
+11. [Authentication Documentation](#authentication-configuration)
 
 # Next.js Project
 
@@ -243,3 +244,54 @@ Copies the provided text to the clipboard. It is used to copy the SSH connection
 - It provides visual feedback to users during the creation process using loading spinners and modal dialogs.
 - SSH connection details (username, password) are displayed and can be copied to the clipboard for ease of access.
 - Error messages are displayed if VM creation fails.
+
+# Authentication Configuration and Components Documentation
+
+## Overview
+
+This code provides authentication functionality for a web application using Next.js and NextAuth. It includes configuration for authentication providers, user authentication logic, and React components for handling the login form.
+
+## Authentication Configuration
+
+The authentication configuration is set up using NextAuth. It includes a custom authentication provider using credentials for username/password authentication. Additionally, it defines callbacks for handling JWT tokens and sessions.
+
+## Authentication Configuration Constants
+
+- `authConfig`: Configuration options for NextAuth, including custom pages, callbacks, and providers.
+
+## Authentication Functions
+
+- `getUser(username: string): Promise<User | any>`: Retrieves a user object based on the provided username. This function is used by the custom credentials provider to authenticate users.
+
+## NextAuth Functions
+
+- `NextAuth({...config})`: Initializes NextAuth with the provided configuration options.
+
+## React Components
+
+### `LoginForm`
+
+A React component responsible for rendering a login form. It includes fields for username and password, as well as error message handling.
+
+### `LoginButton`
+
+A helper component that renders a login button. It disables the button when authentication is pending.
+
+## UI Components
+
+- `AtSymbolIcon`, `KeyIcon`, `ExclamationCircleIcon`, `ArrowRightIcon`: Icon components from Heroicons used for visual elements in the login form.
+
+- `Button`: A custom button component used for login actions.
+
+## Dependencies
+
+- `next-auth`: Next.js authentication library for handling user authentication.
+- `@heroicons/react`: Provides icons used for visual elements in the login form.
+- `@/lib/actions`: Contains authentication-related actions used for form submission.
+- `./fonts`: Imports a custom font for styling text in the login form.
+
+## Notes
+
+- The authentication flow is handled by NextAuth, which abstracts away much of the authentication logic and provides a flexible API for configuring authentication providers and callbacks.
+- React components are used to render the login form and handle user interaction.
+- Form validation and error handling are included to provide a smooth user experience during the authentication process.
