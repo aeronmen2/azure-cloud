@@ -21,19 +21,37 @@ The project involves the development of a web application aimed at providing dev
 
 ## Getting Started
 
-To get started with this project, follow these steps:
+To get started with this project in the Linux environment, you'll need to follow these steps:
 
-1. Open the project in your environment
-2. Copy the `.env.example` file and create a new file named `.env`.
-3. Fill in the values in the `.env` file with your own configurations. You can obtain these values from your Azure account and any other services you're using.
+1. **Decompress the Project**: If the project is compressed (e.g., in a zip file), you'll need to decompress it. You can do this using the `unzip` command if it's a zip file or `tar` command if it's a tarball.
+
+   ```bash
+   unzip project.zip
+   ```
+
+2. **Open the Project in Your IDE**: You can use either WebStorm or Visual Studio Code (VSCode) as your IDE. Open your preferred IDE, then navigate to the directory where you've decompressed the project, and open it from there.
+
+3. **Copy and Configure Environment Variables**:
+
+   - Locate the `.env.example` file in the project directory.
+   - Create a new file named `.env`.
+   - Open `.env.example` and copy its contents.
+   - Paste the copied contents into the newly created `.env` file.
+   - Replace the placeholder values with your actual configurations. You may need to obtain these values from your Azure account and any other services you're using.
+
+   Example:
 
    ```plaintext
-   AUTH_SECRET='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-   AZURE_CLIENT_ID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-   AZURE_CLIENT_SECRET='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-   AZURE_TENANT_ID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
-   AZURE_SUBSCRIPTION_ID='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+   AUTH_SECRET='your_auth_secret'
+   AZURE_CLIENT_ID='your_azure_client_id'
+   AZURE_CLIENT_SECRET='your_azure_client_secret'
+   AZURE_TENANT_ID='your_azure_tenant_id'
+   AZURE_SUBSCRIPTION_ID='your_azure_subscription_id'
    ```
+
+4. **Save the `.env` File**: Make sure to save the `.env` file after adding your configurations.
+
+By following these steps, you should be able to set up and run the project in your Linux environment using either WebStorm or VSCode.
 
 ## Generating JWT Secret
 
